@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.env.*
+*.local
+
+npm.ps1
+.DS_Store
+Thumbs.db
