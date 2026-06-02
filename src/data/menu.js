@@ -142,19 +142,19 @@ export const toppings = ["Keju Slice", "Abon Ayam", "Chili Oil"];
 
 export const gallery = [
   {
-    title: "Dimsum Original",
+    title: "",
     image: productImages.galleryOriginal
   },
   {
-    title: "Dimsum Mentai",
+    title: "",
     image: productImages.galleryMentai
   },
   {
-    title: "Dimsum Mix",
+    title: "",
     image: productImages.galleryMix
   },
   {
-    title: "Minuman",
+    title: "",
     image: productImages.matchaCheeseMilk
   }
 ];
