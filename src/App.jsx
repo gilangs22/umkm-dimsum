@@ -307,6 +307,29 @@ function App() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedItem]);
 
+  useEffect(() => {
+    // lock body scroll when modal is open to avoid layout shift
+    if (selectedItem) {
+      document.body.classList.add("modal-open");
+      const hasScrollbar = window.innerWidth > document.documentElement.clientWidth;
+      if (hasScrollbar) {
+        const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.paddingRight = `${scrollBarWidth}px`;
+      }
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.classList.remove("modal-open");
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
+
+    return () => {
+      document.body.classList.remove("modal-open");
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    };
+  }, [selectedItem]);
+
   const isOpen = useMemo(() => {
     const hour = new Date().getHours();
     return hour >= operationalHours.startHour && hour < operationalHours.endHour;
