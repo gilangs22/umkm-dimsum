@@ -13,18 +13,51 @@ const address =
   "Jl. Randu No.24-20 (depan Alfamidi Randu), Sidotopo Wetan, Kenjeran, Surabaya";
 const coordinates = "-7.228187577800951,112.7637546067669";
 const mapsEmbedUrl = `https://www.google.com/maps?q=${coordinates}&z=18&output=embed`;
+const operationalHours = {
+  startHour: 15,
+  endHour: 21,
+  label: "15.00 - 21.00 WIB"
+};
 
 const marketplaceLinks = [
-  { name: "GoFood", url: "https://gofood.link/a/TyWwKnj", className: "gofood" },
+  {
+    name: "GoFood",
+    url: "https://gofood.link/a/TyWwKnj",
+    className: "gofood",
+    icon: "🍱",
+    tagline: "Pesan cepat, langsung ke GoFood"
+  },
   {
     name: "GrabFood",
     url: "https://r.grab.com/g/6-20260601_151901_0fc8ec97b7bf46129deb2718c90aa7e9_MEXMPS-6-C7WFL32GCPCXTX",
-    className: "grabfood"
+    className: "grabfood",
+    icon: "🚗",
+    tagline: "Grab cepat antar sampai depan rumah"
   },
   {
     name: "ShopeeFood",
     url: "https://shopee.co.id/universal-link/now-food/shop/22975884?deep_and_deferred=1&shareChannel=copy_link",
-    className: "shopeefood"
+    className: "shopeefood",
+    icon: "🛵",
+    tagline: "ShopeeFood mudah dan praktis"
+  }
+];
+
+const marketplaceHighlights = [
+  {
+    icon: "⚡",
+    title: "Pengiriman Kilat",
+    description: "Pesananmu diolah cepat supaya sampai hangat dan enak."
+  },
+  {
+    icon: "💳",
+    title: "Bayar Praktis",
+    description: "Pilih metode pembayaran yang kamu suka di aplikasi favorit."
+  },
+  {
+    icon: "🎁",
+    title: "Promo Spesial",
+    description: "Dapatkan voucher dan diskon dari GoFood, GrabFood, dan ShopeeFood."
   }
 ];
 
@@ -34,7 +67,7 @@ const testimonials = [
     author: "Pelanggan THE REAL DIMSUM"
   },
   {
-    quote: "Kekian dan dimsum bakarnya cocok untuk camilan bareng.",
+    quote: "Dimsum mentai dan hot lava cocok untuk camilan bareng.",
     author: "Pelanggan THE REAL DIMSUM"
   },
   {
@@ -46,7 +79,7 @@ const testimonials = [
 const filters = [
   { label: "Semua", value: "semua" },
   { label: "Dimsum", value: "dimsum" },
-  { label: "Kekian", value: "kekian" },
+  { label: "Kebab", value: "kebab" },
   { label: "Minuman", value: "minuman" },
   { label: "Mentai", value: "mentai" },
   { label: "Pedas", value: "pedas" }
@@ -276,7 +309,7 @@ function App() {
 
   const isOpen = useMemo(() => {
     const hour = new Date().getHours();
-    return hour >= 10 && hour < 22;
+    return hour >= operationalHours.startHour && hour < operationalHours.endHour;
   }, []);
 
   const catalog = useMemo(() => [...menu, ...drinkMenu], []);
@@ -316,7 +349,7 @@ function App() {
             <p className="hero-copy">Dimsum lezat, fresh setiap hari.</p>
             <div className="hero-status">
               <span className={isOpen ? "status-dot open" : "status-dot"} />
-              {isOpen ? "Buka sekarang" : "Tutup sekarang"} - 10.00 sampai 22.00 WIB
+              {isOpen ? "Buka sekarang" : "Tutup sekarang"} - {operationalHours.label}
             </div>
             <div className="hero-actions">
               <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
@@ -332,10 +365,10 @@ function App() {
         <Reveal className="section about" id="tentang">
           <div className="section-heading">
             <p className="eyebrow">Tentang Kami</p>
-            <h2>Dimsum dan kekian untuk camilan harian sampai acara.</h2>
+            <h2>Dimsum, kebab, dan minuman untuk camilan harian sampai acara.</h2>
           </div>
           <p>
-            THE REAL DIMSUM menghadirkan berbagai varian dimsum dan kekian
+            THE REAL DIMSUM menghadirkan berbagai varian dimsum, kebab, dan minuman
             dengan bahan berkualitas, cita rasa lezat, dan harga terjangkau.
             Cocok untuk pesanan pribadi, rapat, arisan, ulang tahun, dan
             kebutuhan acara lainnya.
@@ -355,7 +388,7 @@ function App() {
                   type="search"
                   value={searchTerm}
                   onChange={(event) => setSearchTerm(event.target.value)}
-                  placeholder="Cari mentai, pedas, kekian..."
+                  placeholder="Cari mentai, pedas, kebab..."
                 />
               </label>
               <div className="filter-list" aria-label="Filter menu">
@@ -422,7 +455,7 @@ function App() {
               <h3>Alamat</h3>
               <p>{address}</p>
               <h3>Jam Operasional</h3>
-              <p>Senin - Minggu, 10.00 - 22.00 WIB</p>
+              <p>Senin - Minggu, {operationalHours.label}</p>
               <div className="open-status">
                 <span className={isOpen ? "status-dot open" : "status-dot"} />
                 {isOpen ? "Buka sekarang" : "Tutup sekarang"}
@@ -441,22 +474,48 @@ function App() {
         </Reveal>
 
         <Reveal className="order-section" id="pesan">
-          <div className="section-heading">
+          <div className="section-heading marketplace-heading">
             <p className="eyebrow">Pesan Online</p>
             <h2>Pesan lewat WhatsApp atau aplikasi favoritmu.</h2>
+            <span className="marketplace-badge">3 jalur pesan cepat dan terpercaya</span>
           </div>
-          <div className="marketplace-list">
-            {marketplaceLinks.map((item) => (
-              <a
-                className={`marketplace ${item.className}`}
-                href={item.url}
-                key={item.name}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {item.name}
-              </a>
-            ))}
+          <div className="marketplace-panel">
+            <div className="marketplace-intro">
+              <p className="marketplace-note">
+                Pilih GoFood, GrabFood, atau ShopeeFood lalu klik untuk langsung menuju halaman pesanan. Semua pilihan dikurasi agar pesananmu sampai hangat dan cepat.
+              </p>
+              <div className="marketplace-highlights">
+                {marketplaceHighlights.map((item) => (
+                  <article className="marketplace-card" key={item.title}>
+                    <span className="marketplace-card-icon">{item.icon}</span>
+                    <div>
+                      <strong>{item.title}</strong>
+                      <p>{item.description}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <div className="marketplace-list">
+              {marketplaceLinks.map((item) => (
+                <a
+                  className={`marketplace ${item.className}`}
+                  href={item.url}
+                  key={item.name}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Pesan lewat ${item.name}`}
+                >
+                  <span className="marketplace-icon">{item.icon}</span>
+                  <div>
+                    <span className="marketplace-label">Pesan via</span>
+                    <span className="marketplace-name">{item.name}</span>
+                    <span className="marketplace-tagline">{item.tagline}</span>
+                  </div>
+                  <span className="marketplace-cta">Klik & pesan sekarang</span>
+                </a>
+              ))}
+            </div>
           </div>
           <a className="btn btn-primary btn-large" href={whatsappUrl} target="_blank" rel="noreferrer">
             Pesan Sekarang via WhatsApp

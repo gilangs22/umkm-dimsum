@@ -1,3 +1,20 @@
+export const productImages = {
+  dimsumOriginal: "/images/dimsum-original.jpg",
+  dimsumMentai: "/images/dimsum-mentai.jpg",
+  dimsumTartar: "/images/dimsum-tartar.jpeg",
+  dimsumMix: "/images/dimsum-mix.jpg",
+  dimsumMentaiCakalang: "/images/dimsum-mentai-cakalang.jpg",
+  dimsumMentaiHotLava: "/images/dimsum-hot-lava.jpg",
+  kebabMiniOriginal: "/images/kebab-mini-original.jpg",
+  kebabMiniMozza: "/images/kebab-mini-mozza.jpg",
+  matchaCheeseMilk: "/images/matcha-cheese-milk.jpg",
+  esTehSolo: "/images/es-teh-solo.jpg",
+  thaiTea: "/images/thai-tea.jpg",
+  galleryOriginal: "/images/gallery/gallery(1).jpg",
+  galleryMentai: "/images/gallery/gallery(4).jpg",
+  galleryMix: "/images/gallery/gallery(5).jpg"
+};
+
 export const menu = [
   {
     name: "Dimsum Original",
@@ -10,7 +27,7 @@ export const menu = [
     category: "dimsum",
     tags: ["dimsum"],
     badge: "Best Seller",
-    image: "/images/dimsum-original.jpg"
+    image: productImages.dimsumOriginal
   },
   {
     name: "Dimsum Mentai",
@@ -23,7 +40,7 @@ export const menu = [
     category: "dimsum",
     tags: ["dimsum", "mentai"],
     badge: "Creamy",
-    image: "/images/dimsum-mentai.jpg"
+    image: productImages.dimsumMentai
   },
   {
     name: "Dimsum Tartar",
@@ -35,7 +52,7 @@ export const menu = [
     price16: 85000,
     category: "dimsum",
     tags: ["dimsum"],
-    image: "/images/dimsum-tartar.jpg"
+    image: productImages.dimsumTartar
   },
   {
     name: "Dimsum Mix",
@@ -47,19 +64,7 @@ export const menu = [
     price16: 85000,
     category: "dimsum",
     tags: ["dimsum"],
-    image: "/images/dimsum-mix.jpg"
-  },
-  {
-    name: "Dimsum Mentai Keju",
-    description: "Dimsum mentai dengan tambahan keju gurih.",
-    detailDescription:
-      "Mentai creamy bertemu keju yang gurih dan lumer. Rasanya lebih bold, cocok untuk pencinta topping creamy dengan sensasi asin gurih.",
-    price3: 13000,
-    price6: 25000,
-    price16: 85000,
-    category: "dimsum",
-    tags: ["dimsum", "mentai", "keju"],
-    image: "/images/dimsum-mentai-keju.jpg"
+    image: productImages.dimsumMix
   },
   {
     name: "Dimsum Mentai Cakalang",
@@ -68,80 +73,45 @@ export const menu = [
       "Varian mentai dengan sentuhan cakalang yang gurih dan aromatik. Rasa creamy mentai jadi lebih savory dan punya karakter yang beda.",
     price3: 13000,
     price6: 25000,
+    price16:85000,    
     category: "dimsum",
     tags: ["dimsum", "mentai"],
-    image: "/images/dimsum-mentai-cakalang.jpg"
+    image: productImages.dimsumMentaiCakalang
   },
   {
-    name: "Dimsum Mentai Hot Lava",
+    name: "Dimsum Hot Lava",
     description: "Dimsum dengan sensasi pedas untuk pencinta spicy.",
     detailDescription:
       "Pilihan untuk pencinta pedas. Saus hot lava memberi rasa pedas gurih yang nendang, tetap creamy, dan paling pas dimakan selagi hangat.",
     price3: 13000,
     price6: 25000,
-    price16: 85000,
     category: "dimsum",
     tags: ["dimsum", "mentai", "pedas"],
     badge: "Pedas",
-    image: "/images/dimsum-memtai-hot-lavajpg.jpg"
+    image: productImages.dimsumMentaiHotLava
   },
   {
-    name: "Dimsum Bakar Saus",
-    description: "Dimsum bakar dengan saus gurih yang meresap.",
+    name: "Kebab Mini Original",
+    description: "Kebab mini dengan rasa gurih klasik.",
     detailDescription:
-      "Dimsum dibakar sampai aromanya keluar, lalu dilapisi saus gurih yang meresap. Cocok buat kamu yang suka rasa smoky dan lebih berani.",
-    price3: 13000,
-    price6: 25000,
-    price16: 85000,
-    category: "dimsum",
-    tags: ["dimsum", "bakar"],
-    image: "/images/dimsum-bakar-saus.jpg"
-  },
-  {
-    name: "Dimsum Bakar Celup Mentai",
-    description: "Dimsum bakar dengan cocolan mentai creamy.",
-    detailDescription:
-      "Dimsum bakar dengan aroma smoky, disajikan bersama saus mentai untuk dicocol. Kombinasinya creamy, gurih, dan bikin susah berhenti.",
-    price3: 13000,
-    price6: 25000,
-    price16: 85000,
-    category: "dimsum",
-    tags: ["dimsum", "bakar", "mentai"],
-    image: "/images/dimsum-bakar-celup-mentai.jpg"
-  },
-  {
-    name: "Kekian Original",
-    description: "Kekian gurih untuk camilan praktis.",
-    detailDescription:
-      "Kekian original dengan rasa gurih sederhana yang gampang masuk ke semua lidah. Enak jadi camilan cepat atau tambahan pesanan dimsum.",
+      "Kebab mini dengan isian gurih yang simpel dan cocok buat camilan cepat. Pas untuk yang suka rasa original tanpa topping berlebih.",
     price1: 5500,
     price5: 25000,
-    category: "kekian",
-    tags: ["kekian"],
-    image: "/images/kekian-original.jpg"
+    category: "kebab",
+    tags: ["kebab"],
+    image: productImages.kebabMiniOriginal
   },
   {
-    name: "Kekian Mentai",
-    description: "Kekian dengan topping mentai creamy.",
+    name: "Kebab Mini Mozza",
+    description: "Kebab mini dengan keju mozza yang lumer.",
     detailDescription:
-      "Kekian gurih dengan topping mentai creamy. Teksturnya praktis dimakan, rasanya lebih creamy, dan cocok untuk kamu yang suka menu mentai.",
+      "Kebab mini dengan topping mozza yang lumer dan gurih. Cocok buat yang mau camilan lebih rich dan cheesy.",
     price1: 6500,
     price5: 30000,
-    category: "kekian",
-    tags: ["kekian", "mentai"],
-    image: "/images/kekian-mentai.jpg"
-  },
-  {
-    name: "Kekian Chili Oil",
-    description: "Kekian dengan chili oil pedas gurih.",
-    detailDescription:
-      "Kekian dengan chili oil yang pedas, wangi, dan gurih. Pilihan pas kalau ingin camilan yang lebih berasa dan punya kick pedas.",
-    price1: 6500,
-    price5: 30000,
-    category: "kekian",
-    tags: ["kekian", "pedas"],
-    badge: "Pedas",
-    image: "/images/kekian-chili-oil.jpg"
+    category: "kebab",
+    tags: ["kebab", "keju"],
+    badge: "Cheesy",
+    image: productImages.kebabMiniMozza
   }
 ];
 
@@ -154,17 +124,17 @@ export const drinkMenu = [
     price: 10000,
     category: "minuman",
     tags: ["minuman"],
-    image: "/images/matcha-cheese-milk.jpg"
+    image: productImages.matchaCheeseMilk
   },
   {
-    name: "Thai Tea",
-    description: "Thai tea manis creamy untuk teman makan dimsum.",
+    name: "Es Teh Solo",
+    description: "Es Teh Solo manis creamy untuk teman makan dimsum.",
     detailDescription:
-      "Thai tea dengan rasa teh yang khas, manis, dan creamy. Pas untuk teman makan dimsum bakar, kekian, atau menu pedas.",
-    price: 10000,
+      "Es Teh Solo dengan rasa teh yang khas, manis, dan creamy. Pas untuk teman makan dimsum mentai atau menu pedas.",
+    price: 5000,
     category: "minuman",
     tags: ["minuman"],
-    image: "/images/thai-tea.jpg"
+    image: productImages.esTehSolo
   }
 ];
 
@@ -173,22 +143,18 @@ export const toppings = ["Keju Slice", "Abon Ayam", "Chili Oil"];
 export const gallery = [
   {
     title: "Dimsum Original",
-    image: "/images/dimsum-original.jpg"
+    image: productImages.galleryOriginal
   },
   {
     title: "Dimsum Mentai",
-    image: "/images/dimsum-mentai.jpg"
+    image: productImages.galleryMentai
   },
   {
-    title: "Dimsum Bakar",
-    image: "/images/dimsum-bakar-saus.jpg"
-  },
-  {
-    title: "Kekian",
-    image: "/images/kekian-original.jpg"
+    title: "Dimsum Mix",
+    image: productImages.galleryMix
   },
   {
     title: "Minuman",
-    image: "/images/matcha-cheese-milk.jpg"
+    image: productImages.matchaCheeseMilk
   }
 ];
