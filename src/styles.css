@@ -926,14 +926,16 @@ details p {
   place-items: center;
   padding: 18px;
   background: rgba(16, 10, 8, 0.72);
+  overflow: hidden;
 }
 
 .menu-modal {
   position: relative;
   display: grid;
   grid-template-columns: minmax(260px, 0.9fr) minmax(260px, 1fr);
-  width: min(940px, 100%);
+  width: min(940px, calc(100vw - 36px));
   max-height: min(88vh, 760px);
+  overflow: hidden;
 }
 
 .menu-modal img {
@@ -1007,6 +1009,11 @@ details p {
   .menu-modal img {
     max-height: 320px;
     min-height: 260px;
+  }
+
+  .modal-close {
+    padding: 10px 14px;
+    font-size: 1rem;
   }
 }
 
